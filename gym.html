@@ -3,17 +3,101 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>FitNFine</title>
+    <style>
+    *{
+        margin: 0%;
+        padding: 0%;
+    }
+    
+    body {
+        background-image: url("bg2.jpg");
+        background-size: 100%;
+        color: white;
+    }
+
+    nav {
+        display: flex;
+        justify-content: center;
+        justify-content: space-around;
+        margin-top: 30px;
+    }
+    
+    nav h1{
+        font-size: 50px;
+    }
+
+    nav span {
+        color:antiquewhite;
+    }
+    ul button {
+        width:100px;
+        height: 30px;
+        background-color: antiquewhite;
+        color:black;
+        font-size: 18px;
+        border: none;
+        border-radius: 3px;
+    }
+    ul {
+        display:flex;
+        list-style: none;
+    }
+
+    ul li a{
+        margin-inline: 30px;
+        font-size: 25px;
+    }
+     
+    ul li a:hover{
+        border-bottom: 4px solid grey;
+        border-radius: 3px;
+        margin-top: 2px;
+        cursor: pointer;
+        font-size: 25px;
+    }
+    .text{
+        margin-left: 7%;
+        margin-top: 120px;
+    }
+
+    .text h1{
+        font-size: 100px;
+    }
+
+    .text p{
+        font-size: 28px;
+        margin-top: 20px;
+    }
+
+    .text button{
+        font-size: 100px;
+        width: 165px;
+        height: 42px;
+        background-color: antiquewhite;
+        color: black;
+        border: none;
+        margin-top: 50px;
+        font-size: 25px;
+
+    }
+
+    .text button:hover{
+        border: 3px solid white;
+        background-color: grey;
+        cursor: pointer;
+    }
+    </style>
     <link rel="stylesheet" href="gym.css">
 </head>
 <body>
     <nav>
-        <h1>Fitness First</h1>
+        <h1><span>Fitness</span> <span>First</span></h1>
         <ul>
-            <li><a>Home</a></li>
+            <li><a href="home.html"> Home</a></li>
             <li><a>Offer</a></li>
-            <li><a>Location</a></li>
-            <li><a>Contact</a></li>
+            <li><a href="https://maps.google.com/maps?um=1&fb=1&gl=in&sa=X&geocode=KcGJHTR2sec7MZGStzG79hAg&daddr=sheetal+bar,+near,+Bharwad+chwal,+Vaishali+Nagar,+Dahisar+East,+Mumbai,+Maharashtra+401107&ved=2ahUKEwjX4qmAzo-EAxV31oQAHSPdCnoQiBN6BQgAEKQC">Location</a></li>
+            <li><a><a href="contact.html">Contact</a></a></li>
             <button>Learn more</button>
         </ul>
     </nav>
