@@ -6,21 +6,27 @@
     <title>FitNFine</title>
     <style>
     *{
-        margin: 0%;
-        padding: 0%;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
     }
     
     body {
         background-image: url("bg2.jpg");
-        background-size: 100%;
+        background-size: cover; /* Ensure the background image covers the entire viewport */
         color: white;
+        overflow-x: hidden; /* Hide horizontal scrollbar */
     }
 
     nav {
         display: flex;
-        justify-content: center;
-        justify-content: space-around;
-        margin-top: 30px;
+        justify-content: space-between; /* Adjusted spacing */
+        align-items: center; /* Center items vertically */
+        padding: 20px; /* Add some padding */
+        position: fixed; /* Fixed navigation */
+        top: 0; /* Stick to the top */
+        width: 100%;
+        z-index: 999; /* Ensure it stays above other content */
     }
     
     nav h1{
@@ -28,27 +34,34 @@
     }
 
     nav span {
-        color:antiquewhite;
+        color: antiquewhite;
     }
     ul button {
-        width:100px;
+        width: 100px;
         height: 30px;
         background-color: antiquewhite;
-        color:black;
+        color: black;
         font-size: 18px;
         border: none;
         border-radius: 3px;
     }
     ul {
-        display:flex;
+        display: flex;
         list-style: none;
     }
 
     ul li a{
         margin-inline: 30px;
         font-size: 25px;
+        color: antiquewhite; /* Set default color for all links */
+        text-decoration: none; /* Remove underline */
     }
-     
+
+    /* Specific class for links that should not change color on hover */
+    .no-hover-color:hover {
+        color: antiquewhite !important; /* Override hover color */
+    }
+
     ul li a:hover{
         border-bottom: 4px solid grey;
         border-radius: 3px;
@@ -57,12 +70,13 @@
         font-size: 25px;
     }
     .text{
-        margin-left: 7%;
-        margin-top: 120px;
+        margin-top: 150px; /* Adjusted margin */
+        text-align: center; /* Center text */
     }
 
     .text h1{
         font-size: 100px;
+        margin-bottom: 20px; /* Add some space below the heading */
     }
 
     .text p{
@@ -71,7 +85,6 @@
     }
 
     .text button{
-        font-size: 100px;
         width: 165px;
         height: 42px;
         background-color: antiquewhite;
@@ -79,26 +92,79 @@
         border: none;
         margin-top: 50px;
         font-size: 25px;
+        cursor: pointer; /* Change cursor on hover */
 
     }
 
     .text button:hover{
         border: 3px solid white;
         background-color: grey;
+    }
+
+    .container {
+        margin-top: 200px; /* Ensure content is below the fixed navigation */
+        margin-bottom: 100px; /* Ensure space for footer */
+        padding: 20px; /* Add padding */
+    }
+
+    footer {
+        background-color: #333; /* Updated footer background color */
+        color: #fff;
+        text-align: center;
+        padding: 20px;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        z-index: 999; /* Ensure it stays above other content */
+    }
+
+    footer a {
+        color: #fff; /* Change font color of links */
+    }
+
+    .form-container {
+        display: none; /* Hide the form by default */
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 20px;
+        border-radius: 5px;
+        z-index: 1000; /* Ensure it stays above other content */
+    }
+
+    .form-container form {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    .form-container input,
+    .form-container button {
+        width: 100%;
+        margin-bottom: 10px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    .form-container button {
+        background-color: antiquewhite;
+        color: black;
         cursor: pointer;
     }
+
     </style>
-    <link rel="stylesheet" href="gym.css">
 </head>
 <body>
     <nav>
         <h1><span>Fitness</span> <span>First</span></h1>
         <ul>
-            <li><a href="home.html"> Home</a></li>
+            <li><a href="home.html" class="no-hover-color"> Home</a></li>
             <li><a>Offer</a></li>
-            <li><a href="https://maps.google.com/maps?um=1&fb=1&gl=in&sa=X&geocode=KcGJHTR2sec7MZGStzG79hAg&daddr=sheetal+bar,+near,+Bharwad+chwal,+Vaishali+Nagar,+Dahisar+East,+Mumbai,+Maharashtra+401107&ved=2ahUKEwjX4qmAzo-EAxV31oQAHSPdCnoQiBN6BQgAEKQC">Location</a></li>
-            <li><a><a href="contact.html">Contact</a></a></li>
-            <button>Learn more</button>
+            <li><a href="https://maps.google.com/maps?um=1&fb=1&gl=in&sa=X&geocode=KcGJHTR2sec7MZGStzG79hAg&daddr=sheetal+bar,+near,+Bharwad+chwal,+Vaishali+Nagar,+Dahisar+East,+Mumbai,+Maharashtra+401107&ved=2ahUKEwjX4qmAzo-EAxV31oQAHSPdCnoQiBN6BQgAEKQC" class="no-hover-color">Location</a></li>
+            <li><a><a href="contact.html" class="no-hover-color">Contact</a></a></li>
+            <button onclick="toggleForm()">Learn more</button>
         </ul>
     </nav>
     
@@ -107,9 +173,31 @@
             <h1>FITNESS FIRST.</h1>
             <P>“Strength does not come from physical capacity. <br>
                 It comes from an indomitable will.”</P>
-        <button>Join Now</button>
-
+            <button onclick="toggleForm()">Join Now</button>
         </div>
     </div>
-</body>
-</html>
+
+    <footer>
+        <p>Contact number: 9999922222<br>
+        <a href="fitnessfirst@mail.com"> Email</a><br>
+        <a href="https://fitpass.co.in/mumbai-mira-road-and-beyond/virar-east/fitness-centers" class="no-hover-color">Location</a></p><br>
+    </footer>
+
+    <div class="form-container" id="form-container">
+        <form>
+            <input type="text" placeholder="Enter your name">
+            <input type="email" placeholder="Enter your email">
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        function toggleForm() {
+            var formContainer = document.getElementById("form-container");
+            if (formContainer.style.display === "none") {
+                formContainer.style.display = "block";
+            } else {
+                formContainer.style.display = "none";
+            }
+        }
+   
